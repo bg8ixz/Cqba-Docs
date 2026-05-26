@@ -2,11 +2,11 @@
 categories:
   categories:
     - 
-permalink: /pages/38dfe9
+permalink: /pages/4e517f/
 date: 2026-05-26 14:17:16
 title: api-examples
 tags: []
-lastUpdated: 2026-05-26T09:35:35.945Z
+lastUpdated: 2026-05-26T11:13:42.954Z
 ---
 
 # 运行时 API 示例
