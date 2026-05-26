@@ -53,7 +53,7 @@ export default defineConfig({
       text: '最后更新',
       formatOptions: {
         dateStyle: 'full',
-        timeStyle: 'medium'
+        timeStyle: 'short'
       }
     },
     // 文档页脚
