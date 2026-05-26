@@ -12,6 +12,7 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/images/logo/favicon.svg" }]],
   cleanUrls: true,  // 启用简洁 URL
   lastUpdated: true,  // 显示最后更新时间
+  rewrites: createRewrites(), // 路由重写 使 用pages 访问
   vite: {
     plugins: [
       autoFrontmatter({
