@@ -1,6 +1,8 @@
 {
   "devDependencies": {
-    "vitepress": "^2.0.0-alpha.17"
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-permalink": "^1.2.1",
+    "vitepress-plugin-setfrontmatter": "^1.2.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",

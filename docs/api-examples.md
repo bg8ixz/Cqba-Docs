@@ -1,5 +1,12 @@
 ---
-outline: deep
+categories:
+  categories:
+    - 
+permalink: /pages/38dfe9
+date: 2026-05-26 14:17:16
+title: api-examples
+tags: []
+lastUpdated: 2026-05-26T09:35:35.945Z
 ---
 
 # 运行时 API 示例

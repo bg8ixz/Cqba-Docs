@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import autoFrontmatter from 'vitepress-plugin-setfrontmatter'
+import { createRewrites } from "vitepress-plugin-permalink";
 import { set_sidebar } from "./utils/auto-gen-sidebar.mjs";
 
 // https://vitepress.dev/reference/site-config
@@ -10,6 +12,33 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/images/logo/favicon.svg" }]],
   cleanUrls: true,  // 启用简洁 URL
   lastUpdated: true,  // 显示最后更新时间
+  vite: {
+    plugins: [
+      autoFrontmatter({
+        pattern: 'docs/**/*.md',   // 处理所有Markdown文件
+        globOptions: { ignore: [""] }, //忽略的文件或目录
+        permalinkPrefix: 'pages', // 永久链接前缀，如设置为"/pages/"，生成的permalink为"/pages/xxxx",不设置则不会生成
+        categories: true, // 是否启用自动添加frontmatter.categories分类功能
+        transform: (frontmatter, fileInfo) => {
+          // 根据文件路径添加标签
+          const tags = []
+          if (fileInfo.relativePath.includes('vue')) {
+            tags.push('vue')
+          }
+          if (fileInfo.relativePath.includes('react')) {
+            tags.push('react')
+          }
+          
+          return {
+            ...frontmatter,
+            tags,
+            lastUpdated: new Date().toISOString()
+          }
+        }
+      })
+    ]
+  },
+  // rewrites: createRewrites(),   // 重写 URL 插件，将 /markdown-examples 替换为 /markdown-examples/
   themeConfig: {
     siteTitle: false, // 是否显示标题（有LOGO时关闭)
     logo: '/images/logo/logo.png',

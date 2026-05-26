@@ -1,3 +1,14 @@
+---
+categories:
+  categories:
+    - 
+permalink: /pages/97b577
+date: 2026-05-26 14:17:16
+title: markdown-examples
+tags: []
+lastUpdated: 2026-05-26T09:35:35.971Z
+---
+
 # Markdown 扩展示例
 
 本页面展示了 VitePress 提供的一些内置 Markdown 扩展功能。
