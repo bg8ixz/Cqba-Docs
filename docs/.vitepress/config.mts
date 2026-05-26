@@ -43,11 +43,25 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/bg8ixz/Cqba-Docs' }
     ],
+    // 编辑链接
+    editLink: {
+      pattern: 'https://github.com/bg8ixz/Cqba-Docs/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页面'
+    },
+    // 显示最后更新时间
+    lastUpdated: {
+      text: '最后更新',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'short'
+      }
+    },
     // 文档页脚
     docFooter: {
       prev: '上一页',
       next: '下一页'
     },
+    // 404 页面
     notFound: {
       code: '404',
       title: '页面未找到',
