@@ -5,9 +5,11 @@ import { set_sidebar } from "./utils/auto-gen-sidebar.mjs";
 export default defineConfig({
   lang: 'zh-CN',
   title: "CQ·BA",
+  titleTemplate: '业余无线电爱好者手册',
   description: "关于业余无线电爱好者之间不得不说的那些事。",
   head: [["link", { rel: "icon", href: "/images/logo/favicon.svg" }]],
   cleanUrls: true,  // 启用简洁 URL
+  lastUpdated: true,  // 显示最后更新时间
   themeConfig: {
     siteTitle: false, // 是否显示标题（有LOGO时关闭)
     logo: '/images/logo/logo.png',
@@ -41,6 +43,18 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/bg8ixz/Cqba-Docs' }
     ],
+    // 文档页脚
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    notFound: {
+      code: '404',
+      title: '页面未找到',
+      quote: '您访问的页面不存在',
+      linkLabel: '返回首页',
+      linkText: '点击这里返回主页'
+    },
     footer:{
       message: '<a href="https://icp.gov.moe/?keyword=20267776" target="_blank">萌ICP备20267776号</a>',
       copyright: '&copy; 2026 CQBA.CN & BG8IXZ'

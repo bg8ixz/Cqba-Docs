@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "CQ·BA"
-  text: "关于业余无线电爱好者之间不得不说的那些事。"
-  tagline: 一起来编写可提供大家查阅的业余无线电手册吧~
+  text: "业余无线电手册"
+  tagline: 关于那些年玩无线电不得不说的故事。
   image:
     src: /images/logo/backgroud.svg
     alt: 背景图
