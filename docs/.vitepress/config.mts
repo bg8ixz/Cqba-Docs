@@ -52,8 +52,8 @@ export default defineConfig({
     lastUpdated: {
       text: '最后更新',
       formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'short'
+        dateStyle: 'medium',
+        timeStyle: 'medium'
       }
     },
     // 文档页脚
