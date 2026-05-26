@@ -11,7 +11,15 @@ export default defineConfig({
   description: "关于业余无线电爱好者之间不得不说的那些事。",
   head: [
     ["link", { rel: "icon", href: "/images/logo/favicon.svg" }],
-    ["link", { rel: "stylesheet", href: "//at.alicdn.com/t/c/font_5185174_wquzxldb85.css" }]
+    ["link", { rel: "stylesheet", href: "//at.alicdn.com/t/c/font_5185174_wquzxldb85.css" }],
+    // 新增 Umami 统计
+    [
+      "script",
+      {
+        src: "https://umami.imkee.com/style.css",
+        "data-website-id": "55574370-f93c-425f-842a-d9a01fa5aaff"
+      }
+    ]
   ],
   // 路由重写 重写 使 用pages 访问，文档在 docs，所以必须传 srcDir: 'docs'，让插件去 docs 目录扫描 md 的 permalink。
   rewrites: createRewrites({
