@@ -4,25 +4,25 @@ layout: home
 
 hero:
   name: "CQ·BA"
-  text: "CQ吧站点描述。"
-  tagline: 这是一个小描述。
+  text: "关于业余无线电爱好者之间不得不说的那些事。"
+  tagline: 一起来编写可提供大家查阅的业余无线电手册吧~
   image:
     src: /images/logo/backgroud.svg
     alt: 背景图
   actions:
     - theme: brand
-      text: 开始吧
+      text: 立即开始
       link: /markdown-examples
     - theme: alt
-      text: 第二个按钮
+      text: 加入我们
       link: /api-examples
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 知识管理
+    details: 拒绝碎片，沉浸阅读。
+  - title: 简洁高效
+    details: 清爽页面，快速访问。
+  - title: 全网共建
+    details: 文档开源，共同编辑。
 ---
 
