@@ -49,8 +49,38 @@ const updateStats = () => {
 }
 
 // --- PV 统计 (监听 Busuanzi 或其他脚本写入) ---
-const pv = ref('∞') // 初始状态
+const pv = ref('-') // 初始状态 ∞ 或者 -
 let observer: MutationObserver | null = null
+
+// 20260527 新增：手动刷新 PV 的函数
+const refreshPV = () => {
+  // 方式1：使用 busuanzi 的 fetch 方法
+  if (window.busuanzi && typeof window.busuanzi.fetch === 'function') {
+    window.busuanzi.fetch()
+    // 等待写入完成后更新显示（通过 observer 自动处理，也可以直接读取）
+    setTimeout(() => {
+      const pvEl = document.getElementById('busuanzi_value_page_pv')
+      if (pvEl && pvEl.textContent) {
+        const val = parseInt(pvEl.textContent)
+        if (!isNaN(val)) {
+          pv.value = countTransK(val)
+        }
+      }
+    }, 300)
+    return
+  }
+
+  // 方式2：如果 fetch 方法不存在，重新注入脚本
+  const existingScript = document.querySelector('script[src*="busuanzi.pure.mini.js"]')
+  if (existingScript) {
+    // 移除旧脚本再重新添加，强制重新执行
+    existingScript.remove()
+  }
+  const script = document.createElement('script')
+  script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+  script.async = true
+  document.head.appendChild(script)
+}
 
 const initPVObserver = () => {
     // 1. 寻找 Busuanzi 生成的标准 ID
@@ -89,6 +119,7 @@ onMounted(() => {
     nextTick(() => {
         updateStats()
         initPVObserver()
+        refreshPV()    // 初次加载确保刷新统计（如果脚本已存在但未写入）
     })
 })
 
@@ -96,14 +127,16 @@ onUnmounted(() => {
     observer?.disconnect()
 })
 
+// 监听路由变化，刷新 PV
 watch(
     () => page.value.relativePath,
     () => {
-        pv.value = '...'
+        pv.value = '...'    // 先显示加载中
         nextTick(() => {
-            updateStats()
-            if (observer) observer.disconnect()
-            initPVObserver()
+            updateStats()   // 更新字数、阅读时间
+            if (observer) observer.disconnect()     // 断开旧的 observer
+            refreshPV()     // 触发不蒜子重新计数
+            initPVObserver()    // 重新绑定 observer 监听新写入的值
         })
     }
 )
