@@ -1,16 +1,24 @@
 ---
 categories:
   categories:
-    - 
+    - null
 permalink: /pages/d4ed89
-date: 2026-05-27 17:22:50
+date: 2026-05-28 01:22:50
 title: 更新日志
 noArticleInfo: true
+editLink: false
 tags: []
-lastUpdated: 2026-05-27T09:24:47.858Z
+lastUpdated: 2026-05-27T14:03:36.544Z
 ---
 
+
 # 更新日志
+## 2026-05-28
+- 完善文档标题格式
+- 更新呼号分区图从本地获取
+- 更新ITU分区图从本地获取
+- 更新CQ分区图从本地获取
+- 泡了一壶六堡茶奖励自己
 
 ## 2025-05-27
 - 优化网站布局
@@ -23,7 +31,8 @@ lastUpdated: 2026-05-27T09:24:47.858Z
 
 ## 2025-05-25
 - 从 `GitHub` 备份 [HamCQ手册](https://github.com/HamCQ/Handbook) 项目
-- 尝试本地化构建
+- 尝试本地化构建文档
+- 修复文档格式问题
 
 ## 2026-05-20
 - 购入域名 `cqba.cn`

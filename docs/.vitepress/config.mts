@@ -27,10 +27,11 @@ export default defineConfig({
     srcDir: 'docs'
   }),
   cleanUrls: true,  // 启用简洁 URL
-  ignoreDeadLinks: true, // 临时关闭死链检测，解决 Cloudflare 构建失败问题
+  ignoreDeadLinks: true, // 临时关闭死链检测，否则 Cloudflare 构建失败
   lastUpdated: false,  // 显示最后更新时间，本地测试是需要关闭
   vite: {
     plugins: [
+      // 自动添加永久链接插件
       autoFrontmatter({
         pattern: '**/*.md',   // 处理所有Markdown文件
         globOptions: { ignore: [""] }, //忽略的文件或目录
@@ -179,7 +180,7 @@ export default defineConfig({
     notFound: {
       code: '404',
       title: '页面未找到',
-      quote: '您访问的页面不存在',
+      quote: '但如果你不改变方向，并且继续寻找，你可能最终会到达你所前往的地方。',
       linkLabel: '返回首页',
       linkText: '点击这里返回主页'
     },
