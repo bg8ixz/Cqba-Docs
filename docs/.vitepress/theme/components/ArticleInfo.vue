@@ -226,4 +226,11 @@ watch(
     fill: currentColor;
     opacity: 0.8;
 }
+
+/* 在宽度 > 768px 的大屏（PC/平板横屏）启用两端对齐 */
+@media (min-width: 768px) {
+  .article-info {
+    justify-content: space-between;
+  }
+}
 </style>
