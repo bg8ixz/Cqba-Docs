@@ -210,6 +210,7 @@ watch(
     margin-bottom: 1.5rem;
     color: var(--vp-c-text-2);
     font-size: 0.9rem;
+    border-bottom: 1px solid var(--vp-c-divider); /* 加一条分割线，和正文区分开 */
 }
 
 .info-item {
