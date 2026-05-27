@@ -75,28 +75,38 @@ export default defineConfig({
     ]
   },
   // 配置 Markdown 插件，用于在文章中显示文章统计信息
-  markdown: {	
-    // 组件插入h1标题下
-    config: (md) => {	
-      // 使用 markdown-it 插件
-      md.use((md) => {	
-        // 渲染规则：在 H1 标签结束后插入组件
-        const originalHeadingClose = md.renderer.rules.heading_close || function (tokens, idx, options, env, self) {	
-          return self.renderToken(tokens, idx, options);	
-        };	
+  markdown: {
+    config: (md) => {
+      let inserted = false  // 标记是否已经插入过组件
 
-        md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {	
-          const htmlResult = originalHeadingClose(tokens, idx, options, env, slf);	
+      const originalHeadingClose = md.renderer.rules.heading_close || function (tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
 
-          // 只有当标题是 h1 时才插入
-          if (tokens[idx].tag === 'h1') {	
-            return htmlResult + `<ArticleInfo />`;	
-          }	
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+        const htmlResult = originalHeadingClose(tokens, idx, options, env, slf);
 
-          return htmlResult;	
-        };	
-      })	
-    }	
+        // 只在第一次遇到 h1 时插入
+        if (tokens[idx].tag === 'h1' && !inserted) {
+          inserted = true;
+          return htmlResult + `<ArticleInfo />`;
+        }
+
+        return htmlResult;
+      };
+
+      // 没有 h1 时，在文章最前面插入
+      const originalRender = md.render.bind(md);
+      md.render = (src, env) => {
+        inserted = false; // 每篇文章渲染前重置标记
+        const html = originalRender(src, env);
+        if (!inserted) {
+          // 没有 h1，直接插在开头
+          return `<ArticleInfo />` + html;
+        }
+        return html;
+      };
+    }
   },
 
   // 主题配置
