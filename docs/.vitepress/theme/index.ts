@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import backtotop from './components/backtotop.vue'  // 引入返回顶部组件
 import ArticleInfo from './components/ArticleInfo.vue'  // 引入文章统计信息组件
+import "vitepress-markdown-timeline/dist/theme/index.css";  // 引入时间线插件样式
 
 export default {
   extends: DefaultTheme,

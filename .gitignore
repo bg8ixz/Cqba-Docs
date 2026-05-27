@@ -1,0 +1,18 @@
+# 依赖目录
+node_modules
+
+# VitePress 构建输出
+docs/.vitepress/dist
+.cache
+
+# 系统日志/配置
+.DS_Store
+Thumbs.db
+*.log
+
+# 本地环境变量
+.env
+.env.local
+
+git rm -r --cached node_modules
+git commit -m "移除node_modules，添加gitignore"

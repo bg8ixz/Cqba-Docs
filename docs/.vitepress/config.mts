@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import autoFrontmatter from 'vitepress-plugin-setfrontmatter'
 import { createRewrites } from "vitepress-plugin-permalink";
 import Sidebar from 'vitepress-plugin-sidebar-resolve';
+import timeline from "vitepress-markdown-timeline";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -27,7 +28,7 @@ export default defineConfig({
   }),
   cleanUrls: true,  // 启用简洁 URL
   ignoreDeadLinks: true, // 临时关闭死链检测，解决 Cloudflare 构建失败问题
-  lastUpdated: true,  // 显示最后更新时间，本地测试是需要关闭
+  lastUpdated: false,  // 显示最后更新时间，本地测试是需要关闭
   vite: {
     plugins: [
       autoFrontmatter({
@@ -78,18 +79,27 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       const originalRender = md.render.bind(md)
-
+      // 注册时间线插件
+      md.use(timeline);
       md.render = (src, env) => {
         const html = originalRender(src, env)
-
-        // 规则：
-        // 1. 如果文章以 <h1> 开头 → 插在 h1 后面
-        // 2. 否则 → 插在最顶部
+        // 获取当前文件的路径（相对路径，例如 'index.md' 或 'docs/index.md'）
+        const filePath = env.relativePath || env.path || ''
+        // 判断当前页面是不是首页
+        const isRootIndex = filePath === 'index.md' || filePath.endsWith('/index.md')
+        if (isRootIndex) {
+          return html
+        }
+        // 如果 frontmatter 中标记了 noArticleInfo，则不插入组件
+        if (env.frontmatter?.noArticleInfo) {
+          return html
+        }
         const startsWithH1 = /^\s*<h1/i.test(html.trimStart())
-
         if (startsWithH1) {
+          // 第一个标签就是 H1 → 在 H1 结束后插入
           return html.replace(/(<h1.*?>.*?<\/h1>)/i, `$1<ArticleInfo />`)
         } else {
+          // 不是以 H1 开头 → 顶部插入
           return `<ArticleInfo />${html}`
         }
       }
@@ -113,7 +123,8 @@ export default defineConfig({
     darkModeSwitchTitle: '切换到深色模式',
     nav: [
       { text: '主页', link: '/' },
-      { text: '示例', link: '/markdown-examples' },
+      { text: '示例', link: '/markdown-examples',externalLinkIcon: true },
+      { text: '关于', link: '/pages/8a6c4e',externalLinkIcon: true },
       { text: 'HamCQ',
         items: [
           {text: '介绍',link: '/pages/dabbca' },
