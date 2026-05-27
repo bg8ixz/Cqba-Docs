@@ -18,15 +18,12 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // 注册全局组件，用于在文章中显示文章统计信息
     app.component('ArticleInfo', ArticleInfo); 
+    // 动态添加busuanzi统计脚本
+    if (typeof window !== 'undefined') {
+      const script = document.createElement('script')
+      script.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
+      script.async = true
+      document.head.appendChild(script)
+    }
   },
-  // 把 busuanzi 统计载入
-  head: [
-    [
-      'script',
-      {
-        src: '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js',
-        async: true
-      }
-    ]
-  ]
 } satisfies Theme
