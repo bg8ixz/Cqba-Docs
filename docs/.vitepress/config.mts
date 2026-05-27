@@ -27,7 +27,7 @@ export default defineConfig({
   }),
   cleanUrls: true,  // 启用简洁 URL
   ignoreDeadLinks: true, // 临时关闭死链检测，解决 Cloudflare 构建失败问题
-  lastUpdated: false,  // 显示最后更新时间，本地测试是需要关闭
+  lastUpdated: true,  // 显示最后更新时间，本地测试是需要关闭
   vite: {
     plugins: [
       autoFrontmatter({
@@ -105,6 +105,12 @@ export default defineConfig({
       level: [2, 4],   // 显示 h2 和 h3 标题，默认是 2（只有 h2）
       label: '页面导航'  // 将 'On this page' 改为中文
     },
+    langMenuLabel: '多语言',
+    darkModeSwitchLabel: '主题模式',
+    sidebarMenuLabel: '菜单',    // 移动端“菜单”按钮文字
+    returnToTopLabel: '回到顶部', // 移动端“返回顶部”按钮文字
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
     nav: [
       { text: '主页', link: '/' },
       { text: '示例', link: '/markdown-examples' },
