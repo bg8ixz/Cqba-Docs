@@ -77,35 +77,22 @@ export default defineConfig({
   // 配置 Markdown 插件，用于在文章中显示文章统计信息
   markdown: {
     config: (md) => {
-      let inserted = false  // 标记是否已经插入过组件
+      // 标记是否已经插入过组件（每篇文章渲染前重置）
+      let inserted = false
 
-      const originalHeadingClose = md.renderer.rules.heading_close || function (tokens, idx, options, env, self) {
-        return self.renderToken(tokens, idx, options);
-      };
-
-      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-        const htmlResult = originalHeadingClose(tokens, idx, options, env, slf);
-
-        // 只在第一次遇到 h1 时插入
-        if (tokens[idx].tag === 'h1' && !inserted) {
-          inserted = true;
-          return htmlResult + `<ArticleInfo />`;
-        }
-
-        return htmlResult;
-      };
-
-      // 没有 h1 时，在文章最前面插入
-      const originalRender = md.render.bind(md);
+      // 在文章最开头插入组件
+      const originalRender = md.render.bind(md)
       md.render = (src, env) => {
-        inserted = false; // 每篇文章渲染前重置标记
-        const html = originalRender(src, env);
+        inserted = false // 每篇文章渲染前重置标记
+        const html = originalRender(src, env)
+        
+        // 如果还没插入过，就把组件插在最前面
         if (!inserted) {
-          // 没有 h1，直接插在开头
-          return `<ArticleInfo />` + html;
+          inserted = true
+          return `<ArticleInfo />` + html
         }
-        return html;
-      };
+        return html
+      }
     }
   },
 
