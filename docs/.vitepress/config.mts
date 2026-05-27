@@ -77,21 +77,21 @@ export default defineConfig({
   // 配置 Markdown 插件，用于在文章中显示文章统计信息
   markdown: {
     config: (md) => {
-      // 标记是否已经插入过组件（每篇文章渲染前重置）
-      let inserted = false
-
-      // 在文章最开头插入组件
       const originalRender = md.render.bind(md)
+
       md.render = (src, env) => {
-        inserted = false // 每篇文章渲染前重置标记
         const html = originalRender(src, env)
-        
-        // 如果还没插入过，就把组件插在最前面
-        if (!inserted) {
-          inserted = true
-          return `<ArticleInfo />` + html
+
+        // 规则：
+        // 1. 如果文章以 <h1> 开头 → 插在 h1 后面
+        // 2. 否则 → 插在最顶部
+        const startsWithH1 = /^\s*<h1/i.test(html.trimStart())
+
+        if (startsWithH1) {
+          return html.replace(/(<h1.*?>.*?<\/h1>)/i, `$1<ArticleInfo />`)
+        } else {
+          return `<ArticleInfo />${html}`
         }
-        return html
       }
     }
   },
