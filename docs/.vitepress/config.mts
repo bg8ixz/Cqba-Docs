@@ -53,6 +53,7 @@ export default defineConfig({
           }
         }
       }),
+      // 侧边栏插件，用于根据文件路径自动生成侧边栏
       Sidebar({
         resolveRule: 'rewrites',    // 基于 rewrites 后的虚拟路径生成侧边栏
         path: '',   // 扫描根目录（默认是 srcDir，即 docs 文件夹）
@@ -69,7 +70,7 @@ export default defineConfig({
           // 判断是否为 HTML 标签
           const htmlTagRegex = /^<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>/;
           if (htmlTagRegex.test(prefix)) return prefix;
-
+          // 添加图标功能，在文档标题中使用 sidebarPrefix: icon-图标代码 来添加图标
           return `<i class="iconfont ${prefix}"></i> `;
         },
       })
@@ -77,6 +78,7 @@ export default defineConfig({
   },
   // 配置 Markdown 插件，用于在文章中显示文章统计信息
   markdown: {
+    math: true,  // 启用数学公式插件
     config: (md) => {
       const originalRender = md.render.bind(md)
       // 注册时间线插件
@@ -110,10 +112,11 @@ export default defineConfig({
   themeConfig: {
     siteTitle: false, // 是否显示标题（有LOGO时关闭)
     logo: '/images/logo/logo.png',
+    externalLinkIcon: true,   // 是否显示外部链接图标
     // https://vitepress.dev/reference/default-theme-config
     outline: {
       level: [2, 4],   // 显示 h2 和 h3 标题，默认是 2（只有 h2）
-      label: '页面导航'  // 将 'On this page' 改为中文
+      label: '文章目录'  // 将 'On this page' 改为中文
     },
     langMenuLabel: '多语言',
     darkModeSwitchLabel: '主题模式',
@@ -123,15 +126,22 @@ export default defineConfig({
     darkModeSwitchTitle: '切换到深色模式',
     nav: [
       { text: '主页', link: '/' },
-      { text: '示例', link: '/markdown-examples',externalLinkIcon: true },
-      { text: '关于', link: '/pages/8a6c4e',externalLinkIcon: true },
+      { text: '博客', link: '//imkee.com/' },
       { text: 'HamCQ',
         items: [
           {text: '介绍',link: '/pages/dabbca' },
           {text: '走进业余无线电',link: '/pages/35f753' },
           {text: '百宝箱',link: '/pages/c4ff56' },
         ]
-      }
+      },
+      { text: '更多',
+        items: [
+          {text: '关于本站',link: '/pages/8a6c4e' },
+          {text: '侵权投诉',link: '/pages/ec90ef' },
+          {text: '更新日志',link: '/pages/d4ed89' },
+          {text: '参与贡献',link: '/pages/ee1c6e' },
+        ]
+      },
     ],
 
     // sidebar: [
@@ -175,7 +185,7 @@ export default defineConfig({
     },
     footer:{
       message: '<a href="https://icp.gov.moe/?keyword=20267776" target="_blank">萌ICP备20267776号</a>',
-      copyright: '&copy; 2026 CQBA.CN & BG8IXZ'
+      copyright: '&copy; 2009 - ${new Date().getFullYear()} CQBA.CN & BG8IXZ'
     }
   }
 })
