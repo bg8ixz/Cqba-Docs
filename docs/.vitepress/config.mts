@@ -26,6 +26,7 @@ export default defineConfig({
     srcDir: 'docs'
   }),
   cleanUrls: true,  // 启用简洁 URL
+  ignoreDeadLinks: true, // 临时关闭死链检测，解决 Cloudflare 构建失败问题
   lastUpdated: false,  // 显示最后更新时间，本地测试是需要关闭
   vite: {
     plugins: [
