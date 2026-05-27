@@ -185,7 +185,7 @@ export default defineConfig({
     },
     footer:{
       message: '<a href="https://icp.gov.moe/?keyword=20267776" target="_blank">萌ICP备20267776号</a>',
-      copyright: '&copy; 2009 - ${new Date().getFullYear()} CQBA.CN & BG8IXZ'
+      copyright: `&copy; 2009 - ${new Date().getFullYear()} CQBA.CN & BG8IXZ`
     }
   }
 })
