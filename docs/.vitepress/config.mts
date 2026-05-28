@@ -112,7 +112,11 @@ export default defineConfig({
   // 主题配置
   themeConfig: {
     siteTitle: false, // 是否显示标题（有LOGO时关闭)
-    logo: '/images/logo/logo.png',
+    logo: {
+      light: '/images/logo/logo-black.png', // 浅色模式下显示的深色logo
+      dark: '/images/logo/logo-white.png',  // 深色模式下显示的浅色logo
+      alt: 'CQ·BA'
+    },
     externalLinkIcon: true,   // 是否显示外部链接图标
     // https://vitepress.dev/reference/default-theme-config
     outline: {
