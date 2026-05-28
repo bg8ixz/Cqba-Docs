@@ -8,7 +8,7 @@ import timeline from "vitepress-markdown-timeline";
 export default defineConfig({
   lang: 'zh-CN',
   title: "CQ·BA",
-  titleTemplate: '业余无线电爱好者手册',
+  titleTemplate: '记录电波与热爱',  // 网站副标题
   description: "关于业余无线电爱好者之间不得不说的那些事。",
   head: [
     ["link", { rel: "icon", href: "/images/logo/favicon.svg" }],
