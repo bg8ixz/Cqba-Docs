@@ -28,7 +28,7 @@ export default defineConfig({
   }),
   cleanUrls: true,  // 启用简洁 URL
   ignoreDeadLinks: true, // 临时关闭死链检测，否则 Cloudflare 构建失败
-  lastUpdated: false,  // 显示最后更新时间，本地测试是需要关闭
+  lastUpdated: true,  // 显示最后更新时间，本地测试是需要关闭
   vite: {
     plugins: [
       // 自动添加永久链接插件
