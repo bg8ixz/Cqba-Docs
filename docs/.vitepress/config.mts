@@ -179,8 +179,8 @@ export default defineConfig({
     // 404 页面
     notFound: {
       code: '404',
-      title: '页面未找到',
-      quote: '但如果你不改变方向，并且继续寻找，你可能最终会到达你所前往的地方。',
+      title: '查无该页面',
+      quote: '如果你不改变方向，并且执意探寻，那么你将成功获得 404 错误。',
       linkLabel: '返回首页',
       linkText: '点击这里返回主页'
     },
