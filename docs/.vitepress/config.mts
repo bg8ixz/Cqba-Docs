@@ -61,7 +61,7 @@ export default defineConfig({
         titleFormMd: true,    // 是否从 md 文件读取一级标题作为侧边栏文本（推荐 true）
         collapsed: true,   // 是否折叠侧边栏（可设为 true 或 false）
         ignoreIndexMd: true,    // 忽略 index.md（避免每个目录下出现多余的条目）
-        fileIndexPrefix: true,    // 文件名排序：如果文件名有数字前缀（如 01.xxx.md），插件会自动排序并去除序号
+        fileIndexPrefix: false,    // 文件名排序：如果文件名有数字前缀（如 01.xxx.md），插件会自动排序并去除序号
         defaultSortNum: 9999,    // 排序默认值
         scannerRootMd: true,    // 是否扫描根目录下的 md 文件（默认是 false）
         initItems: true,    // 是否初始化侧边栏（默认是 true）
