@@ -3,12 +3,11 @@ categories:
   categories:
     - null
 permalink: /pages/d4ed89
-date: 2026-05-28 01:22:50
+date: 2026-05-21 01:22:50
 title: 更新日志
 noArticleInfo: true
 editLink: false
 tags: []
-lastUpdated: 2026-05-27T14:03:36.544Z
 ---
 
 
@@ -34,6 +33,6 @@ lastUpdated: 2026-05-27T14:03:36.544Z
 - 尝试本地化构建文档
 - 修复文档格式问题
 
-## 2026-05-20
+## 2026-02-02
 - 购入域名 `cqba.cn`
 - 托管域名到大善人平台

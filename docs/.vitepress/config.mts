@@ -50,7 +50,7 @@ export default defineConfig({
           return {
             ...frontmatter,
             tags,
-            lastUpdated: new Date().toISOString()
+            // lastUpdated: new Date().toISOString()  // 在文档中插入最后更新时间
           }
         }
       }),
