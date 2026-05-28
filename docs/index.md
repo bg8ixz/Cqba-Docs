@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "CQ·BA"
-  text: "业余无线电手册"
-  tagline: 关于那些年玩无线电不得不说的故事。
+  text: "业余无线电与学习笔记"
+  tagline: 记录电波与热爱，分享学习路上的每一点收获。
   image:
     src: /images/logo/backgroud.svg
     alt: 背景图
