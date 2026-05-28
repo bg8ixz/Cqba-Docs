@@ -139,9 +139,10 @@ export default defineConfig({
           {text: '百宝箱',link: '/pages/c4ff56' },
         ]
       },
-      { text: '更多',
+      { text: '关于',
         items: [
           {text: '关于本站',link: '/pages/8a6c4e' },
+          {text: '使用声明',link: '/pages/a46dea' },
           {text: '侵权投诉',link: '/pages/ec90ef' },
           {text: '更新日志',link: '/pages/d4ed89' },
           {text: '参与贡献',link: '/pages/ee1c6e' },
