@@ -157,5 +157,10 @@ export default defineConfig({
       message: '<a href="https://icp.gov.moe/?keyword=20267776" target="_blank">萌ICP备20267776号</a>',
       copyright: `&copy; 2009 - ${new Date().getFullYear()} CQBA.CN & BG8IXZ`
     }
+  },
+  // 配置 sitemap 插件
+  sitemap: {
+    hostname: 'https://docs.cqba.cn', // 换成你自己的域名
+    lastmodDateOnly: true,      // 是否只显示日期，不显示时间
   }
 })
