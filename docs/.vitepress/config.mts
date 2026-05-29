@@ -1,8 +1,11 @@
 import { defineConfig } from 'vitepress'
 import autoFrontmatter from 'vitepress-plugin-setfrontmatter'
 import { createRewrites } from "vitepress-plugin-permalink";
-import Sidebar from 'vitepress-plugin-sidebar-resolve';
+import { withSidebar } from 'vitepress-sidebar';
 import timeline from "vitepress-markdown-timeline";
+import nav from './nav.mts';    // 导入导航栏配置数组
+import sidebar  from './sidebar.mts';   // 侧边导航栏配置数组
+import { generateSidebar } from './utils/generateSidebar.mjs';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -54,27 +57,6 @@ export default defineConfig({
           }
         }
       }),
-      // 侧边栏插件，用于根据文件路径自动生成侧边栏
-      Sidebar({
-        resolveRule: 'rewrites',    // 基于 rewrites 后的虚拟路径生成侧边栏
-        path: '',   // 扫描根目录（默认是 srcDir，即 docs 文件夹）
-        titleFormMd: true,    // 是否从 md 文件读取一级标题作为侧边栏文本（推荐 true）
-        collapsed: true,   // 是否折叠侧边栏（可设为 true 或 false）
-        ignoreIndexMd: true,    // 忽略 index.md（避免每个目录下出现多余的条目）
-        fileIndexPrefix: false,    // 文件名排序：如果文件名有数字前缀（如 01.xxx.md），插件会自动排序并去除序号
-        defaultSortNum: 9999,    // 排序默认值
-        scannerRootMd: true,    // 是否扫描根目录下的 md 文件（默认是 false）
-        initItems: true,    // 是否初始化侧边栏（默认是 true）
-        initItemsText: true,    // 是否初始化第一层 items 的 text 为当前目录名，当 initItems 为 true 时生效。
-        // 自定义前缀转换函数，用于在侧边栏中添加图标
-        prefixTransform: prefix => {
-          // 判断是否为 HTML 标签
-          const htmlTagRegex = /^<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>/;
-          if (htmlTagRegex.test(prefix)) return prefix;
-          // 添加图标功能，在文档标题中使用 sidebarPrefix: icon-图标代码 来添加图标
-          return `<i class="iconfont ${prefix}"></i> `;
-        },
-      })
     ]
   },
   // 配置 Markdown 插件，用于在文章中显示文章统计信息
@@ -129,27 +111,9 @@ export default defineConfig({
     returnToTopLabel: '回到顶部', // 移动端“返回顶部”按钮文字
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
-    nav: [
-      { text: '主页', link: '/' },
-      { text: '博客', link: '//imkee.com/' },
-      { text: 'HamCQ',
-        items: [
-          {text: '介绍',link: '/pages/dabbca' },
-          {text: '走进业余无线电',link: '/pages/35f753' },
-          {text: '百宝箱',link: '/pages/c4ff56' },
-        ]
-      },
-      { text: '关于',
-        items: [
-          {text: '关于本站',link: '/pages/8a6c4e' },
-          {text: '使用声明',link: '/pages/a46dea' },
-          {text: '侵权投诉',link: '/pages/ec90ef' },
-          {text: '更新日志',link: '/pages/d4ed89' },
-          {text: '参与贡献',link: '/pages/ee1c6e' },
-        ]
-      },
-    ],
-
+    nav: nav, // 导航栏配置数组从 nav.mts 中导入
+    
+    sidebar: generateSidebar(), // 静态导入文件用 sidebar 动态用generateSidebar()生成
     // sidebar: [
     //   {
     //     text: '示例',
