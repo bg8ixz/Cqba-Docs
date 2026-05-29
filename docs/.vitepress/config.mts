@@ -160,7 +160,7 @@ export default defineConfig({
   },
   // 配置 sitemap 插件
   sitemap: {
-    hostname: 'https://docs.cqba.cn', // 换成你自己的域名
+    hostname: 'https://docs.cqba.cn', // 域名要带协议头
     lastmodDateOnly: true,      // 是否只显示日期，不显示时间
   }
 })

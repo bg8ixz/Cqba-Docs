@@ -1,0 +1,26 @@
+[
+  {
+    "icon": "https://docs.hamcq.cn/img/logo/favicon-wmioxuat.png",
+    "name": "HamCQ",
+    "details": "是无线电,把我们联系在一起。",
+    "link": "//forum.hamcq.cn/"
+  },
+  {
+    "icon": "//tg46008.cn/assets/img/favicon.png",
+    "name": "TG-46008",
+    "details": "BrandMeister TG46008频道，与全球业余无线电爱好者交流。",
+    "link": "//tg46008.cn/"
+  },
+  {
+    "icon": "https://oss.xiaohe.ink/images/uni-echarts.png",
+    "name": "TG-46023",
+    "details": "重庆46023数字互联， 覆盖重庆主城范围及周边部分区域。",
+    "link": "//tg46023.cn/"
+  },
+  {
+    "icon": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyOTAuNTYgMzIwLjk4Ij48ZGVmcz48c3R5bGU+LmNscy0xe2lzb2xhdGlvbjppc29sYXRlO30uY2xzLTJ7ZmlsbDojMWM5M2NhO30uY2xzLTN7ZmlsbDojNjFiMjQ4O21peC1ibGVuZC1tb2RlOmNvbG9yLWJ1cm47fTwvc3R5bGU+PC9kZWZzPjxnIGNsYXNzPSJjbHMtMSI+PGcgaWQ9IuWbvuWxgl8yIiBkYXRhLW5hbWU9IuWbvuWxgiAyIj48ZyBpZD0i6buE6YeR5q+U5L6LIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xNDQuODUsNTQuMTNWMjY2Ljg1YTU0LjEzLDU0LjEzLDAsMCwxLTEwOC4yNiwwVjU0LjEzYTU0LjEzLDU0LjEzLDAsMCwxLDEwOC4yNiwwWiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI5MC41NiwyNjYuODVBNTQuMTQsNTQuMTQsMCwwLDEsMjA4LDMxMi45M0wzMS4zNywyMDkuNTlsLTguNzctNS4xMywwLDBhNTQuMTQsNTQuMTQsMCwwLDEsMC04Ny45NWwwLDAsOC44LTUuMTVMMjA3LjI1LDguNTNsLjE3LS4xLDMuNTItMi4wNi4wOCwwYTU0LjE0LDU0LjE0LDAsMSwxLDQ5LjY2LDk2LjIxbDAsMEwxNTguNTUsMTYwLjc4bDEwNC4xNiw1OC43NEE1NC4xMiw1NC4xMiwwLDAsMSwyOTAuNTYsMjY2Ljg1WiIvPjwvZz48L2c+PC9nPjwvc3ZnPg==",
+    "name": "Kee's Note",
+    "details": "Kee's Note，个人流水账笔记站。",
+    "link": "//imkee.com/"
+  }
+]

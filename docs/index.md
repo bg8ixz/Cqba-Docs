@@ -37,4 +37,5 @@ features:
     link: /
     linkText: 查看更多
 ---
+<FriendsLink />
 
