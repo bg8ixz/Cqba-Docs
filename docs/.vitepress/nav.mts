@@ -1,6 +1,6 @@
 export default [
     { text: '主页', link: '/' },
-    { text: '博客', link: '//imkee.com/' },
+    { text: '笔记', link: '/pages/90d9f6' },
     { text: 'HamCQ',
         items: [
             {text: '介绍',link: '/pages/dabbca' },
