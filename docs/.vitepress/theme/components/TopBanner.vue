@@ -282,6 +282,11 @@ html.has-top-banner .VPDocAside {
   transition: top 0.3s ease;
 }
 
+/* 大纲内容容器下移 调高改 0px 即可 上同*/
+html.has-top-banner .VPDocAsideOutline .content {
+  top: calc(0px + var(--banner-offset)) !important;
+}
+
 html.has-top-banner .VPContent {
   padding-top: calc(var(--vp-nav-height, 64px) + var(--banner-offset)) !important;
 }
