@@ -275,23 +275,6 @@ html.has-top-banner .VPSidebar {
   transition: top 0.3s ease;
 }
 
-/* 右侧大纲容器下移 */
-html.has-top-banner .VPDocAside {
-  top: calc(var(--vp-nav-height, 0px) + var(--banner-offset)) !important;
-  transition: top 0.3s ease;
-}
-
-/* 大纲内部标记下移 */
-html.has-top-banner .outline-marker {
-  top: calc(0px + var(--banner-offset)) !important;
-  transition: top 0.2s ease;
-}
-
-/* 大纲内容容器下移 调高改 0px 即可 上同*/
-html.has-top-banner .VPDocAsideOutline .content {
-  top: calc(0px + var(--banner-offset)) !important;
-}
-
 html.has-top-banner .VPContent {
   padding-top: calc(var(--vp-nav-height, 64px) + var(--banner-offset)) !important;
 }
