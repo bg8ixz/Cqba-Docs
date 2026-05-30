@@ -269,9 +269,16 @@ html.has-top-banner {
   --banner-offset: var(--top-banner-height, 56px);
 }
 
+/* 导航栏和侧边栏下移 */
 html.has-top-banner .VPNavBar,
 html.has-top-banner .VPSidebar {
   top: var(--banner-offset) !important;
+  transition: top 0.3s ease;
+}
+
+/* 右侧大纲容器下移 */
+html.has-top-banner .VPDocAside {
+  top: calc(var(--vp-nav-height, 0px) + var(--banner-offset)) !important;
   transition: top 0.3s ease;
 }
 
