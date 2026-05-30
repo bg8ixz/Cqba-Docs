@@ -1,0 +1,22 @@
+{
+  "scrollInterval": 10000,
+  "enabled": true,
+  "closeExpire": "1d",
+  "banners": [
+    {
+      "title": "您正在浏览 CQ·BA 的笔记站，如果您有什么建议，欢迎联系我！",
+      "action": "意见建议",
+      "link": "/pages/8a6c4e#联系我-们"
+    },
+    {
+      "title": "您在这可能找得到一些奇奇怪怪的学习笔记、项目记录、个人思考等！",
+      "action": "开始探索",
+      "link": "pages/dabbca"
+    },
+    {
+      "title": "如果这个项目帮助到你，你也希望能够帮到更多的人，欢迎参与知识库共创！",
+      "action": "参与共创",
+      "link": "/pages/d99472"
+    }
+  ]
+}

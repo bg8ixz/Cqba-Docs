@@ -7,11 +7,14 @@ import backtotop from './components/backtotop.vue'  // 引入返回顶部组件
 import ArticleInfo from './components/ArticleInfo.vue'  // 引入文章统计信息组件
 import "vitepress-markdown-timeline/dist/theme/index.css";  // 引入时间线插件样式
 import FriendsLink from './components/FriendsLink.vue'  // 引入友情链接组件
+import TopBanner from './components/TopBanner.vue'  // 引入顶部 banner 公告组件
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
+      // 指定组件使用layout-top插槽
+      'layout-top': () => h(TopBanner),
       // 指定组件使用doc-footer-before插槽
       'doc-footer-before': () => h(backtotop),   
       // https://vitepress.dev/guide/extending-default-theme#layout-slots

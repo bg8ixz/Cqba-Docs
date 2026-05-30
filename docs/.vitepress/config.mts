@@ -4,7 +4,7 @@ import { createRewrites } from "vitepress-plugin-permalink";
 import { withSidebar } from 'vitepress-sidebar';
 import timeline from "vitepress-markdown-timeline";
 import nav from './nav.mts';    // 导入导航栏配置数组
-import sidebar  from './sidebar.mts';   // 侧边导航栏配置数组
+import sidebar  from './sidebar.mts';   // 侧边导航栏配置数组（采用静态方式时使用）
 import { generateSidebar } from './utils/generateSidebar.mjs';
 
 // https://vitepress.dev/reference/site-config
