@@ -292,9 +292,15 @@ html.has-top-banner .VPContent {
 }
 
 @media (max-width: 640px) {
-  html.has-top-banner {
-    --banner-offset: 48px;
+  html.has-top-banner .VPContent {
+     padding-top: 0 !important;
   }
+
+  /* 防止滚动时页面其他固定元素被公告栏遮盖（如有自定义的返回顶部等） */
+  html.has-top-banner .VPLocalNav {
+    top: var(--banner-offset) !important;
+  }
+
   html.has-top-banner .outline-marker {
     top: calc(25px + var(--banner-offset)) !important;
   }
