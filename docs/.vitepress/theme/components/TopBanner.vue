@@ -126,14 +126,24 @@ watch(
 )
 
 onMounted(() => {
-  isClosed.value = checkClosed()
+  // 检测是否为移动端 (640px 是 VitePress 的移动断点)
+  const isMobile = window.innerWidth <= 640;
+
+  if (isMobile) {
+    // 如果是移动端，直接设为 true，会移除 DOM，不显示公告栏
+    isClosed.value = true;
+    return; // 直接结束，不执行下面的初始化
+  }
+
+  // --- 1.0 版本 ---
+  isClosed.value = checkClosed();
   // 如果公告禁用或者用户已关闭，清除偏移，恢复默认布局
   if (!enabled || isClosed.value) {
-    setBannerOffset(false)
+    setBannerOffset(false);
   } else {
-    setBannerOffset(true)
-    startAutoScroll()
-    window.addEventListener('resize', handleResize)
+    setBannerOffset(true);
+    startAutoScroll();
+    window.addEventListener('resize', handleResize);
   }
 })
 
@@ -300,7 +310,7 @@ html.has-top-banner .VPContent {
   html.has-top-banner .VPLocalNav {
     top: var(--banner-offset) !important;
   }
-
+  /* 阅读进度跟随 */
   html.has-top-banner .outline-marker {
     top: calc(25px + var(--banner-offset)) !important;
   }
