@@ -1,6 +1,6 @@
 // closeExpire参数 0 = 关闭后永久不显示；1 = 关闭后本次会话有效，刷新就恢复；1d = 1天后恢复；7d = 7天后恢复；30d = 30天后恢复
 <template>
-  <div v-if="enabled && !isClosed" class="top-banner-container">
+  <div v-if="isClient && enabled && !isClosed" class="top-banner-container">
     <div class="banner-content">
       <div class="banner-slider">
         <div
