@@ -125,8 +125,6 @@ watch(
   }
 )
 
-isClient.value = true
-
 onMounted(() => {
   // 检测是否为移动端 (640px 是 VitePress 的移动断点)
   const isMobile = window.innerWidth <= 640;
